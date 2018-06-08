@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import NotificationSystem from 'react-notification-system'
 
 const GlobalState = React.createContext({
@@ -7,7 +7,7 @@ const GlobalState = React.createContext({
 
 export default GlobalState
 
-export class NotificationsProvider extends Component {
+export class NotificationsProvider extends React.Component<any, any> {
   constructor(props) {
     super(props)
     this._notificationSystem = React.createRef()

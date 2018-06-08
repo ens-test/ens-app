@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
@@ -12,6 +12,12 @@ import resolvers, { defaults } from './api/rootResolver'
 import typeDefs from './api/schema'
 import { ApolloProvider } from 'react-apollo'
 import { NotificationsProvider } from './Notifications'
+
+declare global {
+  interface Window {
+    __APOLLO_STATE__: any
+  }
+}
 
 const cache = new InMemoryCache(window.__APOLLO_STATE__)
 
