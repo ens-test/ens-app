@@ -62,6 +62,8 @@ const getResolverContract = addr => {
 
 const getENSContract = () => {
   return getWeb3().then(({ web3, networkId }) => {
+    console.log(arguments.callee.caller.toString()
+                + " networkId: " + networkId)
     return {
       ens: web3.eth.contract(ensContract).at(contracts[networkId].registry),
       web3
@@ -81,6 +83,8 @@ const getFifsRegistrarContract = () => {
 
 const getENS = async (ensAddress, web3Instance) => {
   var { web3, networkId } = await getWeb3()
+  console.log(arguments.callee.caller.toString()
+              + " networkId: " + networkId)
 
   if (!ENS) {
     if (!ensAddress) {
